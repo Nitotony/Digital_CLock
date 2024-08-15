@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital CLock</title>
+    <style>
+        .container{
+            background-color: black;
+            text-align: center;
+            padding: 50px;
+            height:200px;
+            width: 300px;
+            margin: 200px auto;
+            border: brown 10px solid;
+            border-radius: 50%;
+
+
+        }
+
+        .clock{
+            font-size: 40px;
+            color: greenyellow;
+        }
+        .title{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div class="container">
+        <div class="title">
+            <h1>Digital Clock</h1>
+        </div>
+        <div class="clock">
+            <span class="Hours">00</span>
+            <span>:</span>
+            <span class="Minutes">00</span>
+            <span>:</span>
+            <span class="Seconds">00</span>
+            <span class="div">am</span>
+            
+        </div>
+    </div>
+
+
+
+    <script>
+ const updateTime=()=>{
+
+            const Hours=document.getElementsByClassName("Hours")[0];
+            const Minutes=document.getElementsByClassName("Minutes")[0];
+            const Seconds=document.getElementsByClassName("Seconds")[0];
+            const Div=document.getElementsByClassName("div")[0];
+            const date = new Date();
+
+            
+
+            
+            
+                
+            let hours=date.getHours();
+            const minutes=date.getMinutes();
+            const seconds=date.getSeconds();
+     
+            
+            if (hours >= 12) {
+                Div.innerHTML = 'pm';
+                if (hours > 12) {
+                    hours =hours-12;
+                }
+            } else {
+                Div.innerHTML = 'am';
+                if (hours === 0) {
+                    hours = 12;
+                }
+            }
+
+            Hours.innerHTML=String((hours<10)?"0"+hours:hours);
+            Minutes.innerHTML=String((minutes<10)?"0"+minutes:minutes);
+            Seconds.innerHTML=String((seconds<10)?"0"+seconds:seconds);
+        }
+        setInterval(updateTime,1000);
+
+
+       
+    </script>
+</body>
+</html>
